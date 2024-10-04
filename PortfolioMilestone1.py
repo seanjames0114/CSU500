@@ -121,53 +121,6 @@ def print_menu(shoppingCart):
         
         else:
             print("Invalid option. Please try again.")
-'''
-#part 1 print the item that is created using the class and method
-item1 = ItemToPurchase("banana", 5, 6)
-item1.print_item_cost()
-
-#part 2 user has input, take in the name price and quant, store in var
-print("Item 1")
-item_1_name = input("Enter the item name : ")
-item_1_price = int(input("Enter the item price : "))
-item_1_quant = int(input("Enter the item quantity : "))
-
-print("Item 2")
-item_2_name = input("Enter the item name : ")
-item_2_price = int(input("Enter the item price : "))
-item_2_quant = int(input("Enter the item quantity : "))
-
-#put those temps into the objects of the class
-item1 = ItemToPurchase(item_1_name, item_1_price, item_1_quant)
-item2 = ItemToPurchase(item_2_name, item_2_price, item_2_quant)
-
-#calc the total
-total_cost = item1.calc_total_price() + item2.calc_total_price()
-
-print("TOTAL COST")
-item1.print_item_cost()
-item2.print_item_cost()
-print(f"Total : ${total_cost}")
-
-# MILESTONE 2 
-cart = ShoppingCart("Sean James", "Sept 2024")
-item1.item_description = input("Give description for item 1 : ")
-item2.item_description = input("Give description for item 2 : ")
-item_to_remove = input("Enter item name to remove : ")
-cart.add_item(ItemToPurchase("cup"))
-item_to_edit = input("Enter item name to edit : ")
-item_mod = ItemToPurchase(item_to_edit)
-new_q = int(input("Enter new quantity  :"))
-new_p = int(input("Enter new price :"))
-new_d = input("Enter new description  :")
-cart.add_item(item1)
-cart.add_item(item2)
-cart.remove_item(item_to_remove)
-cart.modify_item(item_mod,new_p, new_q, new_d)
-
-cart.print_total()
-cart.print_item_descriptions()
-'''
 
 # Milestone 3
 cust_name = input("Enter customer's name : ")
