@@ -28,16 +28,19 @@ class ShoppingCart:
     
     def remove_item(self, item_name): 
         item_found = False
+        # Loop through the items and if the item name matches, remove that item from  the cart
         for i in self.cart_items: 
             if(i.item_name == item_name): 
                 self.cart_items.remove(i)
                 item_found = True
+                print(f"Removed : {item_name}")
 
         if(item_found == False):
             print('Item not found in cart. Nothing removed.')
     
     def modify_item(self, itemToPurchase, new_price, new_q, new_desc):
         item_found = False
+        # Loop through the items in the cart, check if the item name is the same. If so then modify to with the provided parameters 
         for i in self.cart_items: 
             if (i.item_name == itemToPurchase.item_name): 
                 i.item_price = new_price
@@ -53,6 +56,8 @@ class ShoppingCart:
     
     def get_cost_cart(self):
         cost_cart = 0
+
+        # Loop through the items and get the total cost of each item and add it to the running total of cost_cart 
         for i in self.cart_items:
             x = i.item_price * i.item_quantity
             cost_cart += x
@@ -62,7 +67,7 @@ class ShoppingCart:
     def print_total(self):
         print(f"{self.cust_name} - {self.date}")
         print(f"Number of Items : {self.get_num_items_in_cart()}")
-
+        # Loop through each item and print the cost of each 
         for i in self.cart_items:
             i.print_item_cost()
         print(f"Total : ${self.get_cost_cart()}")
@@ -70,6 +75,7 @@ class ShoppingCart:
     def print_item_descriptions(self):
         print(f"{self.cust_name} - {self.date}")
         print(f"Item Descriptions")
+        # Loop through all the items and print the name and description of each 
         for i in self.cart_items:
             print(f"{i.item_name} : {i.item_description}")
 
@@ -91,6 +97,7 @@ def print_menu(shoppingCart):
         user_choice = input()
         
         if user_choice == 'a':
+            # Create an item to purchase, get all the info from the user and then create the item, then add item to cart
             item_name = input("Enter the item name: ")
             item_price = int(input("Enter the item price: "))
             item_quantity = int(input("Enter the item quantity: "))
@@ -101,11 +108,13 @@ def print_menu(shoppingCart):
         
         elif user_choice == 'r':
             item_name = input("Enter the item name to remove: ")
+            # Remove the item that has the matching name  
             shoppingCart.remove_item(item_name)
         
         elif user_choice == 'c':
             item_name = input("Enter the item name to modify: ")
             new_quantity = int(input("Enter the new item quantity: "))
+            # Search through the items, when you find the item matching the name, reset the quantity
             for i in shoppingCart.cart_items:
                 if i.item_name == item_name:
                     i.item_quantity = new_quantity
@@ -123,10 +132,13 @@ def print_menu(shoppingCart):
             print("Invalid option. Please try again.")
 
 # Milestone 3
+# Get the customer name
 cust_name = input("Enter customer's name : ")
+# Get the current date
 current_date = input("Enter todays date : ")
 print(f"Customer name: {cust_name}")
 print(f"Today's date: {current_date}")
 
+# Instatiate the shopping cart with the name and dates provided
 cart = ShoppingCart(cust_name, current_date)
 print_menu(cart)
