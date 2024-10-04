@@ -170,5 +170,10 @@ cart.print_item_descriptions()
 '''
 
 # Milestone 3
-cart = ShoppingCart("Sean James", "Sept 2024")
+cust_name = input("Enter customer's name : ")
+current_date = input("Enter todays date : ")
+print(f"Customer name: {cust_name}")
+print(f"Today's date: {current_date}")
+
+cart = ShoppingCart(cust_name, current_date)
 print_menu(cart)
